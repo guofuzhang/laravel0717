@@ -19,7 +19,7 @@ Route::get("/","Home\IndexController@index");
 //路由分组
 Route::group(['prefix'=>'admin','namespace'=>'Admin'],function (){
 
-    Route::get("manager/login","ManagerController@login");
+    Route::match(['get','post'],"manager/login","ManagerController@login");
 //后台主页路由
     Route::get("index/index","IndexController@index");
 //后台欢迎页面路由

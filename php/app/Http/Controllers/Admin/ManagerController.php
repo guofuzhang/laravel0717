@@ -5,19 +5,41 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Models\Manager;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class ManagerController extends Controller
 {
-    public function login()
+    public function login(Request $request)
     {
-        return view("admin/manager/login");
+        if($request->isMethod("post")){
+
+            $name=$request->input("username");
+            $pwd=$request->input("password");
+
+            $res= Auth::guard("admin")->attempt(['username'=>$name,'password'=>$pwd]);
+//            dd($name,$pwd,$res);
+            if($res)
+            {
+                return redirect("admin/index/index");
+            }
+            else
+                {
+                  return  redirect("admin/manager/login")->withErrors(["errorinfo"=>"用户名或账号错误"])->withInput();
+                }
+
+
+        }else{
+            return view("admin/manager/login");
+        }
+
+
     }
 
     public function showlist(Request $request,Manager $manager)
     {
        $info= $manager->get();
         return view("admin/manager/showlist",['info'=>$info]);
-
     }
 
     public function tianjia(Request $request)

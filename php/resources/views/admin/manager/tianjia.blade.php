@@ -2,16 +2,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-	<style>
-		#mg_remark{
-			height: 240px;
-			/*background-color: pink;*/
-			border: none;
-		}
-		.edui-editor-breadcrumb{
-			display: none;
-		}
-	</style>
+
 <meta charset="utf-8">
 <meta name="renderer" content="webkit|ie-comp|ie-stand">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -42,6 +33,16 @@
 <!--/meta 作为公共模版分离出去-->
 
 <title>添加用户 - H-ui.admin v3.0</title>
+	<style>
+		#mg_remark{
+			height: 240px;
+			/*background-color: pink;*/
+			border: none;
+		}
+		.edui-editor-breadcrumb{
+			display: none;
+		}
+	</style>
 <meta name="keywords" content="H-ui.admin v3.0,H-ui网站后台模版,后台模版下载,后台管理系统模版,HTML后台模版下载">
 <meta name="description" content="H-ui.admin v3.0，是一款由国人开发的轻量级扁平化网站后台模板，完全免费开源的网站后台管理系统模版，适合中小型CMS后台系统。">
 </head>
@@ -185,7 +186,7 @@ $(function(){
 		})
     })
 });
-</script> 
+</script>
 <!--/请在上方写此页面业务相关的脚本-->
 </body>
 </html>

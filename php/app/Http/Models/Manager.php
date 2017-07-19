@@ -3,8 +3,8 @@
 namespace App\Http\Models;
 
 use Illuminate\Database\Eloquent\Model;
-
-class Manager extends Model
+use Illuminate\Foundation\Auth\User;
+class Manager extends User
 {
   protected $table="manager";
   protected $primaryKey="mg_id";

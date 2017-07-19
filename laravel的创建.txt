@@ -1,3 +1,4 @@
 cd mylaravel/MyLaravel/php
 git@github.com:guofuzhang/laravel0717.git
 git@github.com:guofuzhang/laravel0717.git
+git@github.com:guofuzhang/MVC0718.git
