@@ -179,7 +179,7 @@ $(function(){
 					   layer_close();
                    });
 				}else {
-                    alert("false");
+                    layer.alert("添加失败["+msg.errorinfo+"]",{icon:5});
 				}
             }
 

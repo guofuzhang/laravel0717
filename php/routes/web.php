@@ -26,9 +26,12 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin'],function (){
     Route::get("index/welcome","IndexController@welcome");
 //后台管理员列表路由
     Route::get("manager/showlist","ManagerController@showlist");
+//    添加管理员的后台路由
     Route::match(['get','post'],"manager/tianjia","ManagerController@tianjia");
+//    修改管理员的后台路由
     Route::match(['get','post'],"manager/xiugai/{manager}","ManagerController@xiugai");
+//    删除管理员的后台路由
     Route::match(['get','post'],"manager/del/{manager}","ManagerController@del");
-
+    Route::get("manager/logout","ManagerController@logout");
 });
 //后台登录路由
