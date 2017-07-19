@@ -58,7 +58,8 @@ class ManagerController extends Controller
 
     public function showlist(Request $request, Manager $manager)
     {
-        $info = $manager->get();
+        $info = Manager::with('role')->get();
+//      dd($info);
         return view("admin/manager/showlist", ['info' => $info]);
     }
 

@@ -30,6 +30,7 @@
 				<th width="8%">性别</th>
 				<th width="9%">手机</th>
 				<th width="10%">邮箱</th>
+				<th width="10%">角色</th>
 				<th width="10%">加入时间</th>
 				<th width="7%">状态</th>
 				<th width="*">操作</th>
@@ -45,6 +46,7 @@
 					<td>{{$v->mg_sex}}</td>
 					<td>{{$v->mg_phone}}</td>
 					<td>{{$v->mg_email}}</td>
+					<td>{{$v->role->role_name}}</td>
 					<td>{{$v->created_at}}</td>
 					<td class="td-status"><span class="label label-success radius">已启用</span></td>
 					<td class="td-manage">

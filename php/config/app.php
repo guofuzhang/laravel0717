@@ -140,6 +140,7 @@ return [
         /*
          * Laravel Framework Service Providers...
          */
+        \Barryvdh\Debugbar\ServiceProvider::class,
         \Mews\Captcha\CaptchaServiceProvider::class,
         Illuminate\Auth\AuthServiceProvider::class,
         Illuminate\Broadcasting\BroadcastServiceProvider::class,
@@ -192,6 +193,7 @@ return [
     */
 
     'aliases' => [
+        'Debugbar'=>\Barryvdh\Debugbar\Facade::class,
         'Captcha'=>\Mews\Captcha\Facades\Captcha::class,
         'App' => Illuminate\Support\Facades\App::class,
         'Artisan' => Illuminate\Support\Facades\Artisan::class,
