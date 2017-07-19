@@ -19,19 +19,25 @@ Route::get("/","Home\IndexController@index");
 //路由分组
 Route::group(['prefix'=>'admin','namespace'=>'Admin'],function (){
 
-    Route::match(['get','post'],"manager/login","ManagerController@login");
-//后台主页路由
-    Route::get("index/index","IndexController@index");
+//    添加中间件
+    Route::group(["middleware"=>['auth:admin']],function (){
+        //后台主页路由
+        Route::get("index/index","IndexController@index");
 //后台欢迎页面路由
-    Route::get("index/welcome","IndexController@welcome");
+        Route::get("index/welcome","IndexController@welcome");
 //后台管理员列表路由
-    Route::get("manager/showlist","ManagerController@showlist");
+        Route::get("manager/showlist","ManagerController@showlist");
 //    添加管理员的后台路由
-    Route::match(['get','post'],"manager/tianjia","ManagerController@tianjia");
+        Route::match(['get','post'],"manager/tianjia","ManagerController@tianjia");
 //    修改管理员的后台路由
-    Route::match(['get','post'],"manager/xiugai/{manager}","ManagerController@xiugai");
+        Route::match(['get','post'],"manager/xiugai/{manager}","ManagerController@xiugai");
 //    删除管理员的后台路由
-    Route::match(['get','post'],"manager/del/{manager}","ManagerController@del");
-    Route::get("manager/logout","ManagerController@logout");
+        Route::match(['get','post'],"manager/del/{manager}","ManagerController@del");
+        Route::get("manager/logout","ManagerController@logout");
+
+    });
+
+    Route::match(['get','post'],"manager/login","ManagerController@login")->name("login");
+
 });
 //后台登录路由

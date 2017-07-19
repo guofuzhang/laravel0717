@@ -23,6 +23,7 @@
   <meta name="description" content="H-ui.admin v3.0，是一款由国人开发的轻量级扁平化网站后台模板，完全免费开源的网站后台管理系统模版，适合中小型CMS后台系统。">
 </head>
 <body>
+<div class="box">
 <input type="hidden" id="TenantId" name="TenantId" value="" />
 <div class="header"></div>
 <div class="loginWraper">
@@ -30,6 +31,23 @@
     @if($errors->first('errorinfo'))
       <div style="width: 100%;height: 20px;background-color: pink">{{$errors->first("errorinfo")}}</div>
       @endif
+
+    @if($errors->first('username'))
+        <div style="width: 100%;height: 20px;background-color: pink">{{$errors->first("username")}}</div>
+
+      @endif
+
+      @if($errors->first('password'))
+        <div style="width: 100%;height: 20px;background-color: pink">{{$errors->first("password")}}</div>
+
+      @endif
+
+      @if($errors->first('yanzh'))
+        <div style="width: 100%;height: 20px;background-color: pink">{{$errors->first("yanzh")}}</div>
+
+      @endif
+
+
     <form class="form form-horizontal" action="/admin/manager/login" method="post">
       {{csrf_field()}}
       <div class="row cl">
@@ -47,8 +65,8 @@
       </div>
       <div class="row cl">
         <div class="formControls col-xs-8 col-xs-offset-3">
-          <input class="input-text size-L" type="text" placeholder="验证码" onblur="if(this.value==''){this.value='验证码:'}" onclick="if(this.value=='验证码:'){this.value='';}" value="验证码:" style="width:150px;">
-          <img src=""> <a id="kanbuq" href="javascript:;">看不清，换一张</a> </div>
+          <input class="input-text size-L" name="yanzh" type="text" placeholder="验证码"  style="width:150px;">
+          <img id="img1" onclick="this.src=this.src+'?'+Math.random()" src="{{captcha_src()}}"> <a id="kanbuq"  href="javascript:;">看不清，换一张</a> </div>
       </div>
       <div class="row cl">
         <div class="formControls col-xs-8 col-xs-offset-3">
@@ -67,10 +85,20 @@
   </div>
 </div>
 <div class="footer">Copyright 你的公司名称 by H-ui.admin v3.0</div>
+</div>
 <script type="text/javascript" src="/admin/lib/jquery/1.9.1/jquery.min.js"></script>
 <script type="text/javascript" src="/admin/static/h-ui/js/H-ui.min.js"></script>
 <!--此乃百度统计代码，请自行删除-->
 <script>
+var a1=document.querySelector("#kanbuq");
+var img1=document.querySelector("#img1");
+$(a1).on("click",function () {
+
+    img1.src=img1.src+'?'+Math.random();
+//         http://www.mylaravel.com/captcha/default?lyBqCHfr?2
+
+
+})
     var _hmt = _hmt || [];
     (function() {
         var hm = document.createElement("script");

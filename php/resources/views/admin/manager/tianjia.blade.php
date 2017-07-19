@@ -68,7 +68,7 @@
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>确认密码：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="password" class="input-text" value="" placeholder="" id="pwd1" name="pwd1">
+				<input type="password" class="input-text" value="" placeholder="" id="pwd1" name="password_confirmation">
 			</div>
 		</div>
 
@@ -174,7 +174,7 @@ $(function(){
 		datatype:"json",
 			success:function (msg) {
 				if(msg.success==true){
-				   layer.alert("添加成功", {icon: 5},function () {
+				   layer.alert("添加成功", {icon: 6},function () {
 					   parent.window.location.href=parent.window.location.href;
 					   layer_close();
                    });
